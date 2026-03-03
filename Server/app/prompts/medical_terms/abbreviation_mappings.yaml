@@ -1,0 +1,97 @@
+# Medical Abbreviation Mappings
+# Bidirectional mappings for common medical abbreviations
+
+hbsag:
+  abbreviations:
+    - "Hep B"
+    - "HBV"
+    - "Hepatitis B"
+    - "HBsAg"
+  full_term: "HBsAg"
+  variations:
+    - "hep b"
+    - "hepatitis b surface antigen"
+    - "hbv surface antigen"
+
+treatment_location:
+  OR:
+    abbreviations:
+      - "OR"
+      - "O.R."
+    full_term: "Operating Room"
+    variations:
+      - "operating room"
+      - "surgery"
+      - "surgical suite"
+      - "operation theater"
+  
+  ICU-CCU:
+    abbreviations:
+      - "ICU"
+      - "CCU"
+      - "ICU-CCU"
+    full_term: "Intensive Care Unit - Cardiac Care Unit"
+    variations:
+      - "intensive care"
+      - "cardiac care"
+      - "critical care"
+      - "icu ccu"
+  
+  ER:
+    abbreviations:
+      - "ER"
+      - "E.R."
+      - "ED"
+    full_term: "Emergency Room"
+    variations:
+      - "emergency room"
+      - "emergency department"
+      - "emergency"
+  
+  Bedside:
+    abbreviations:
+      - "Bedside"
+    full_term: "Bedside"
+    variations:
+      - "bedside"
+      - "at bedside"
+      - "patient bedside"
+  
+  Multi-Tx Room:
+    abbreviations:
+      - "Multi-Tx"
+      - "Multi-Tx Room"
+    full_term: "Multiple Treatment Rooms"
+    variations:
+      - "multiple treatment rooms"
+      - "multi treatment"
+      - "multiple rooms"
+
+gender:
+  Male:
+    abbreviations:
+      - "M"
+      - "Male"
+    full_term: "Male"
+    variations:
+      - "male"
+      - "man"
+      - "gentleman"
+    pronouns:
+      - "he"
+      - "him"
+      - "his"
+  
+  Female:
+    abbreviations:
+      - "F"
+      - "Female"
+    full_term: "Female"
+    variations:
+      - "female"
+      - "woman"
+      - "lady"
+    pronouns:
+      - "she"
+      - "her"
+      - "hers"

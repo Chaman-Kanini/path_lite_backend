@@ -1,19 +1,36 @@
 from fastapi import APIRouter, Depends, Query
 from datetime import datetime, date
 from typing import List
-from app.models.patient import PatientCreate, PatientUpdate, PatientResponse, PatientList
+from app.models.patient import (
+    PatientCreate, 
+    PatientUpdate, 
+    PatientResponse, 
+    PatientList,
+    Gender,
+    TreatmentLocation,
+    HBsAgStatus
+)
 from app.dependencies import get_current_user, get_db
 
 router = APIRouter(prefix="/patients", tags=["Patients"])
 
 _PLACEHOLDER_PATIENT = PatientResponse(
     id="patient-001",
-    first_name="John",
-    last_name="Doe",
     mrn="MRN-001",
-    dob=date(1990, 1, 1),
-    email="john.doe@example.com",
-    phone="555-1234",
+    firstName="John",
+    middleName="M",
+    lastName="Doe",
+    dob="1990-01-01",
+    gender=Gender.Male,
+    admissionNumber="ADM-001",
+    treatmentLocation=TreatmentLocation.OR,
+    roomNumber="101",
+    hbsAgStatus=HBsAgStatus.Negative,
+    hbsAgDate=None,
+    hbsAgSource=None,
+    hbsAbValue=None,
+    hbsAbDate=None,
+    hbsAbSource=None,
     created_at=datetime.utcnow(),
     updated_at=datetime.utcnow(),
 )

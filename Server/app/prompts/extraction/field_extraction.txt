@@ -1,0 +1,14 @@
+Extract the {field_type} from the following conversation transcript:
+
+Transcript:
+{transcript}
+
+Instructions:
+- Extract the {field_type} mentioned in the conversation
+- Provide a confidence score (0.0-1.0) based on how clearly the information was stated
+- If the {field_type} is not mentioned or is unclear, indicate low confidence
+- For dates, convert to YYYY-MM-DD format
+- For names, extract both first and last name if this is a name field
+- For MRN, preserve the exact format as stated
+
+Return the extracted information in the specified structured format.

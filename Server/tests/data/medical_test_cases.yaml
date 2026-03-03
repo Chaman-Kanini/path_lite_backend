@@ -1,0 +1,225 @@
+# Medical Term Extraction Test Cases
+# Comprehensive test cases for validating >95% accuracy
+
+hbsag_test_cases:
+  - input: "Patient is Hep B positive"
+    expected: "Positive"
+    description: "Common abbreviation - Hep B"
+  
+  - input: "HBsAg test came back negative"
+    expected: "Negative"
+    description: "Standard medical terminology"
+  
+  - input: "Hepatitis B status unknown"
+    expected: "Unknown"
+    description: "Unknown status"
+  
+  - input: "The patient has hepatitis B"
+    expected: "Positive"
+    description: "Full term - Hepatitis B"
+  
+  - input: "No HBV detected in blood work"
+    expected: "Negative"
+    description: "Abbreviation HBV with negative context"
+  
+  - input: "Patient tested positive for Hep B surface antigen"
+    expected: "Positive"
+    description: "Full description with positive"
+  
+  - input: "HBsAg screening was negative"
+    expected: "Negative"
+    description: "Screening context"
+  
+  - input: "Not sure about hepatitis B status"
+    expected: "Unknown"
+    description: "Uncertain status"
+  
+  - input: "HBV positive result"
+    expected: "Positive"
+    description: "HBV abbreviation positive"
+  
+  - input: "Hepatitis B surface antigen not detected"
+    expected: "Negative"
+    description: "Not detected phrasing"
+  
+  - input: "Patient has chronic HBV infection"
+    expected: "Positive"
+    description: "Chronic infection context"
+  
+  - input: "Hep B negative on recent labs"
+    expected: "Negative"
+    description: "Labs context"
+  
+  - input: "HBsAg status not documented"
+    expected: "Unknown"
+    description: "Not documented"
+  
+  - input: "Positive for hepatitis B virus"
+    expected: "Positive"
+    description: "Virus terminology"
+  
+  - input: "No evidence of HBsAg"
+    expected: "Negative"
+    description: "No evidence phrasing"
+
+treatment_location_test_cases:
+  - input: "Patient is in the operating room"
+    expected: "OR"
+    description: "Full term - operating room"
+  
+  - input: "Treatment at bedside"
+    expected: "Bedside"
+    description: "Bedside treatment"
+  
+  - input: "Admitted to ICU-CCU"
+    expected: "ICU-CCU"
+    description: "ICU-CCU admission"
+  
+  - input: "ER visit for chest pain"
+    expected: "ER"
+    description: "ER abbreviation"
+  
+  - input: "Patient treated in multiple treatment rooms"
+    expected: "Multi-Tx Room"
+    description: "Multiple locations"
+  
+  - input: "Surgery scheduled in the OR"
+    expected: "OR"
+    description: "Surgery in OR"
+  
+  - input: "Transferred to intensive care unit"
+    expected: "ICU-CCU"
+    description: "Full term - intensive care"
+  
+  - input: "Emergency department evaluation"
+    expected: "ER"
+    description: "Emergency department"
+  
+  - input: "Received care at bedside and in OR"
+    expected: "Multi-Tx Room"
+    description: "Multiple locations - bedside and OR"
+  
+  - input: "Patient in surgical suite"
+    expected: "OR"
+    description: "Surgical suite synonym"
+  
+  - input: "Bedside procedure performed"
+    expected: "Bedside"
+    description: "Bedside procedure"
+  
+  - input: "Critical care unit admission"
+    expected: "ICU-CCU"
+    description: "Critical care synonym"
+  
+  - input: "Emergency room treatment"
+    expected: "ER"
+    description: "Emergency room full term"
+  
+  - input: "Treatment in OR then ICU"
+    expected: "Multi-Tx Room"
+    description: "Sequential locations"
+  
+  - input: "Operating theater procedure"
+    expected: "OR"
+    description: "Operating theater synonym"
+
+gender_test_cases:
+  - input: "The patient is male"
+    expected: "Male"
+    description: "Direct statement - male"
+  
+  - input: "Female patient presenting with symptoms"
+    expected: "Female"
+    description: "Direct statement - female"
+  
+  - input: "M, 45 years old"
+    expected: "Male"
+    description: "Abbreviation M"
+  
+  - input: "F admitted for observation"
+    expected: "Female"
+    description: "Abbreviation F"
+  
+  - input: "He was admitted yesterday"
+    expected: "Male"
+    description: "Pronoun - he"
+  
+  - input: "She presented with chest pain"
+    expected: "Female"
+    description: "Pronoun - she"
+  
+  - input: "The gentleman is recovering well"
+    expected: "Male"
+    description: "Gentleman synonym"
+  
+  - input: "Woman, 32, with acute symptoms"
+    expected: "Female"
+    description: "Woman synonym"
+  
+  - input: "Male patient, age 50"
+    expected: "Male"
+    description: "Male with age"
+  
+  - input: "Female presenting to ER"
+    expected: "Female"
+    description: "Female in ER context"
+  
+  - input: "His symptoms started last week"
+    expected: "Male"
+    description: "Pronoun - his"
+  
+  - input: "Her medical history includes"
+    expected: "Female"
+    description: "Pronoun - her"
+  
+  - input: "Man with chronic condition"
+    expected: "Male"
+    description: "Man synonym"
+  
+  - input: "Lady admitted for surgery"
+    expected: "Female"
+    description: "Lady synonym"
+  
+  - input: "M patient transferred"
+    expected: "Male"
+    description: "M abbreviation in context"
+
+edge_cases:
+  hbsag:
+    - input: ""
+      expected: "Unknown"
+      description: "Empty input"
+    
+    - input: "Patient has some liver condition"
+      expected: "Unknown"
+      description: "Ambiguous liver condition"
+    
+    - input: "HBsAg HBsAg HBsAg positive positive positive"
+      expected: "Positive"
+      description: "Repeated terms"
+  
+  treatment_location:
+    - input: ""
+      expected: null
+      description: "Empty input"
+    
+    - input: "Patient at home"
+      expected: null
+      description: "Invalid location"
+    
+    - input: "OR OR OR"
+      expected: "OR"
+      description: "Repeated location"
+  
+  gender:
+    - input: ""
+      expected: null
+      description: "Empty input"
+    
+    - input: "Patient gender not specified"
+      expected: null
+      description: "Not specified"
+    
+    - input: "Male male male"
+      expected: "Male"
+      description: "Repeated gender"

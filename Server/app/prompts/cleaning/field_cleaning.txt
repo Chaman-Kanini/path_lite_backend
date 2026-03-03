@@ -1,0 +1,15 @@
+Clean the following {field_type} field from conversational text.
+
+Original text: {transcript}
+
+Instructions:
+1. Remove filler words: "the", "is", "was", "patient", "name", "uh", "um", "like"
+2. Extract only the relevant {field_type} value
+3. Apply appropriate text normalization:
+   - For names: Convert to proper case (Title Case)
+   - For dates: Normalize to MM/DD/YYYY format if possible
+   - For numeric values: Preserve exactly as spoken
+4. Remove unnecessary punctuation except for dates and decimals
+5. Provide a confidence score (0.0 to 1.0) based on clarity of extraction
+
+Return the cleaned value with confidence score.

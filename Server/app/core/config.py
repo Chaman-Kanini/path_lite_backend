@@ -14,7 +14,7 @@ class Settings(BaseSettings):
     LOG_LEVEL: str = "info"
     RELOAD: bool = True
 
-    CORS_ORIGINS: List[str] = ["http://localhost:3000", "http://localhost:8081"]
+    CORS_ORIGINS: List[str] = ["*"]  # Allow all origins in development
 
     SECRET_KEY: str = "dev-secret-key-do-not-use-in-production"
 
@@ -22,6 +22,9 @@ class Settings(BaseSettings):
     AZURE_OPENAI_ENDPOINT: str = ""
     AZURE_OPENAI_DEPLOYMENT: str = "gpt-4"
     AZURE_OPENAI_API_VERSION: str = "2024-02-01"
+    AZURE_OPENAI_MODEL: str = "gpt-5-mini"
+    AZURE_OPENAI_MAX_RETRIES: int = 3
+    AZURE_OPENAI_TIMEOUT: int = 30
 
     @field_validator("CORS_ORIGINS", mode="before")
     @classmethod

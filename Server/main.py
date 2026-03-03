@@ -8,7 +8,7 @@ from pydantic import ValidationError
 
 from app.core.config import settings
 from app.core.middleware import RequestIDMiddleware, RequestLoggingMiddleware
-from app.routers import auth_router, patients_router, ai_router
+from app.routers import auth_router, patients_router, ai_router, medical_extraction_router
 
 logging.basicConfig(
     level=getattr(logging, settings.LOG_LEVEL.upper(), logging.INFO),
@@ -35,6 +35,7 @@ app = FastAPI(
         {"name": "Authentication", "description": "User authentication and authorization"},
         {"name": "Patients", "description": "Patient management operations"},
         {"name": "AI Processing", "description": "AI-assisted conversation endpoints"},
+        {"name": "Medical Extraction", "description": "Medical term extraction from patient responses"},
     ],
     lifespan=lifespan,
 )
@@ -52,6 +53,7 @@ app.add_middleware(
 app.include_router(auth_router, prefix="/api/v1")
 app.include_router(patients_router, prefix="/api/v1")
 app.include_router(ai_router, prefix="/api/v1")
+app.include_router(medical_extraction_router)
 
 
 @app.exception_handler(Exception)

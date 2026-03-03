@@ -1,0 +1,56 @@
+# Medical Field Schema Definitions
+# Valid enum values and validation rules for medical terminology fields
+
+fields:
+  hbsag:
+    field_name: "HBsAg Status"
+    field_type: "enum"
+    enum_values:
+      - "Positive"
+      - "Negative"
+      - "Unknown"
+    validation_rules:
+      - "Must be one of: Positive, Negative, Unknown"
+      - "Case-insensitive matching allowed"
+      - "Abbreviations expanded before validation"
+    fuzzy_matching:
+      enabled: true
+      threshold: 0.85
+    confidence_threshold: 0.7
+    description: "Hepatitis B surface antigen test status"
+  
+  treatment_location:
+    field_name: "Treatment Location"
+    field_type: "enum"
+    enum_values:
+      - "OR"
+      - "Bedside"
+      - "ICU-CCU"
+      - "ER"
+      - "Multi-Tx Room"
+    validation_rules:
+      - "Must be one of: OR, Bedside, ICU-CCU, ER, Multi-Tx Room"
+      - "Abbreviations expanded to standard values"
+      - "Multiple locations should map to Multi-Tx Room"
+    fuzzy_matching:
+      enabled: true
+      threshold: 0.85
+    confidence_threshold: 0.7
+    description: "Location where patient receives treatment"
+  
+  gender:
+    field_name: "Gender"
+    field_type: "enum"
+    enum_values:
+      - "Male"
+      - "Female"
+    validation_rules:
+      - "Must be one of: Male, Female"
+      - "Pronouns mapped to appropriate gender"
+      - "Abbreviations (M/F) expanded"
+    fuzzy_matching:
+      enabled: true
+      threshold: 0.85
+    confidence_threshold: 0.7
+    description: "Patient gender for medical records"
+    privacy_note: "Handle with sensitivity and respect patient privacy"
