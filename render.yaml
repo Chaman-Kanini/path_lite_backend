@@ -1,0 +1,12 @@
+services:
+  - type: web
+    name: path-lite-backend
+    runtime: python
+    rootDir: Server
+    buildCommand: pip install -r requirements.txt
+    startCommand: uvicorn main:app --host 0.0.0.0 --port $PORT
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.11
+      - key: LOG_LEVEL
+        value: INFO
