@@ -116,7 +116,6 @@ class ExtractionService:
                         {"role": "user", "content": user_prompt}
                     ],
                     response_format=extraction_model,
-                    temperature=0.0,
                 )
                 
                 extracted_data = response.choices[0].message.parsed
@@ -190,7 +189,6 @@ For each field found, provide a confidence score. If a field is not mentioned, o
                     {"role": "user", "content": user_prompt}
                 ],
                 response_format=PatientFieldExtraction,
-                temperature=0.0,
             )
             
             extracted_data = response.choices[0].message.parsed

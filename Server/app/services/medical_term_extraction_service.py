@@ -318,7 +318,7 @@ class MedicalTermExtractionService:
                 model=settings.AZURE_OPENAI_DEPLOYMENT_NAME,
                 messages=messages,
                 temperature=0.3,
-                max_tokens=500,
+                max_completion_tokens=500,
                 response_format={"type": "json_object"}
             )
             

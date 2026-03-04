@@ -51,7 +51,7 @@ class AzureOpenAIClient:
             response = self.client.chat.completions.create(
                 model=settings.AZURE_OPENAI_DEPLOYMENT,
                 messages=[{"role": "user", "content": "test"}],
-                max_tokens=5,
+                max_completion_tokens=5,
             )
             logger.info("Azure OpenAI connection verified successfully")
             return True
